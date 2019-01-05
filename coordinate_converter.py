@@ -2,37 +2,12 @@ import re
 
 #User input
 # coord=input('Enter coordinate: ')
-coord="42°24′31.32″N"
-answer=42.408699999999996
+coord_dms="42°24′31.32″N"
+coord_dd=42.408699999999996
 
 
-#DMS to DD in one function
-def dms_to_dd_1(dms):
-    parts = re.split('[^\d\w]+', dms)#Splits all symbols except for integers and unicode characters
-
-    if len(parts)>4:
-        deg = int(parts[0])
-        min = int(parts[1])
-        sec = int(parts[2])+(int(parts[3])/100)#Correction of the decimal split
-        if parts[4] == 'W' or parts[4] == 'S':
-            return -1 * (deg + (min / 60) + (sec / 3600))
-        else:
-            return deg + (min / 60) + (sec / 3600)
-
-    else:
-        deg = int(parts[0])
-        min = int(parts[1])
-        sec = int(parts[2])
-        if parts[3] == 'W' or parts[3] == 'S':
-            return -1 * (deg + (min / 60) + (sec / 3600))
-        else:
-            return deg + (min / 60) + (sec / 3600)
-
-#DMS to DD with two functions
-
-#Parses the DMS coord into four parts, deg
-
-def dd_calc(deg,min,sec,direc):
+#DMS to DD
+def dd_calc(deg,min,sec,direc):#Parses the DMS coord into four parts, deg
     if direc == 'W' or direc == 'S':
         return -1 * (deg + (min / 60) + (sec / 3600))
     else:
@@ -48,4 +23,27 @@ def dms_to_dd(dms):
         return dd_calc(int(parts[0]), int(parts[1]), int(parts[2]), parts[3])
 
 
-print(dms_to_dd(coord))
+#DD to DMS
+def dd_to_dms(dms,direction):
+    deg=int(dms)
+    minDec= (dms-deg)*60
+    minutes = int(minDec)
+    sec = (minDec-minutes)*60
+
+    if direction=="lat":
+        if deg>0:
+            return "{}°{}′{}″N" .format(deg, minutes, sec)
+        else:
+            return "{}°{}′{}″S" .format(abs(deg), abs(minutes), abs(sec))
+
+    else:
+        if deg > 0:
+            return "{}°{}′{}″E" .format(deg, minutes, sec)
+        else:
+            return "{}°{}′{}″W" .format(abs(deg), abs(minutes), abs(sec))
+
+
+print(dd_to_dms(coord_dd,'lon'))
+new_coord=dd_to_dms(coord_dd,'lon')
+
+
