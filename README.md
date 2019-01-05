@@ -6,3 +6,7 @@ This program converts DMS (degree, minutes, seconds) coordinates to DD (decimal 
 
 ## Status
 Incomplete
+
+## Bugs
+- [ ] Fix decimals in dd_to_dms function.
+
