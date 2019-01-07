@@ -9,4 +9,4 @@ Incomplete
 
 ## Bugs
 - [ ] Fix decimals in dd_to_dms function.
-
+- [ ] Condense DMS parse.
