@@ -10,3 +10,10 @@ Incomplete
 ## Bugs
 - [ ] Fix decimals in dd_to_dms function.
 - [ ] Condense DMS parse.
+
+## What I learned
+
+- How to parse with the re. library
+- How to condense code by means of function comprehension
+- The value of data structures in algorithms
+
