@@ -3,7 +3,7 @@ import re
 #User input
 # coord=input('Enter coordinate: ')
 coord_dms="42°24′31.32″N"
-coord_dd=42.408699999999996
+coord_dd=-42.408699999999996
 
 
 #DMS to DD
@@ -24,26 +24,21 @@ def dms_to_dd(dms):
 
 
 #DD to DMS
-def dd_to_dms(dms,direction):
-    deg=int(dms)
-    minDec= (dms-deg)*60
+def dd_to_dms(dd,direction):
+    deg=int(dd)
+    minDec= (dd-deg)*60
     minutes = int(minDec)
     sec = (minDec-minutes)*60
 
-    if direction=="lat":
-        if deg>0:
-            return "{}°{}′{}″N" .format(deg, minutes, sec)
-        else:
-            return "{}°{}′{}″S" .format(abs(deg), abs(minutes), abs(sec))
+    Geo_coord={"lon":('N','S'),
+               "lat":('W','E')
+    }
 
-    else:
-        if deg > 0:
-            return "{}°{}′{}″E" .format(deg, minutes, sec)
-        else:
-            return "{}°{}′{}″W" .format(abs(deg), abs(minutes), abs(sec))
+    return "{}°{}′{}″{}" .format(abs(deg), abs(minutes), abs(sec),Geo_coord[direction][0 if deg>0 else 1])
 
 
-print(dd_to_dms(coord_dd,'lon'))
+
+print(dd_to_dms(coord_dd,'lat'))
 new_coord=dd_to_dms(coord_dd,'lon')
 
 
