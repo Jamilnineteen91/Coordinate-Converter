@@ -14,6 +14,7 @@ Incomplete
 ## What I learned
 
 - How to parse with the re. library
-- How to condense code by means of function comprehension
-- The value of data structures in algorithms
+- How to condense code by means of function 
+comprehension (lines 12,14,21,23, and 37)
+- The value of data structures in algorithms (line 37)
 
