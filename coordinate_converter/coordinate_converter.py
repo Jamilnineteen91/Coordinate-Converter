@@ -1,14 +1,8 @@
 import re
 
-#User input
-# coord=input('Enter coordinate: ')
-coord_dms="42°24′31.32″N"
-coord_dd=-42.408699999999996
-coord_dms2="42°24′31″N"
-
 
 #DMS to DD
-def dd_calc(deg,min,sec,direc):#Parses the DMS coord into four parts, deg
+def dd_calc(deg,min,sec,direc):
     if direc == 'W' or direc == 'S':
         return -1 * (deg + (min / 60) + (sec / 3600))
     else:
