@@ -9,6 +9,8 @@ These functions convert DMS (degree, minutes, seconds) coordinates to DD (decima
 
 - Parsing with regex
 - List comprehension
-- Module packaging: [Modules](https://docs.python.org/3/tutorial/modules.html) and [PEP 8 -- Style Guide](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)
+- Module packaging: [Modules](https://docs.python.org/3/tutorial/modules.html), 
+[PEP 8 -- Style Guide](https://www.python.org/dev/peps/pep-0008/#package-and-module-names) and
+[Setup Script](https://docs.python.org/3/distutils/setupscript.html)
 
 
