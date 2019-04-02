@@ -21,8 +21,6 @@ def dms_to_dd(dms):
 
     return round(dd,4)
 
-dd=dms_to_dd(coord_dms)
-print(dd)
 #DD to DMS
 def dd_to_dms(dd,direction):
     deg=int(dd)
