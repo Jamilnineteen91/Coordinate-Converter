@@ -16,11 +16,13 @@ def dd_calc(deg,min,sec,direc):#Parses the DMS coord into four parts, deg
 
 
 def dms_to_dd(dms):
-    parts = re.split("[\°\′\″]",dms)#Splits all symbols except for integers and unicode characters
+    parts = re.split("[\°\′\″]",dms)
+    dd=dd_calc(int(parts[0]), int(parts[1]), float(parts[2]), parts[3])
 
-    return dd_calc(int(parts[0]), int(parts[1]), float(parts[2]), parts[3])
+    return round(dd,4)
 
-
+dd=dms_to_dd(coord_dms)
+print(dd)
 #DD to DMS
 def dd_to_dms(dd,direction):
     deg=int(dd)
