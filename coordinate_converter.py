@@ -4,6 +4,7 @@ import re
 # coord=input('Enter coordinate: ')
 coord_dms="42°24′31.32″N"
 coord_dd=-42.408699999999996
+coord_dms2="42°24′31″N"
 
 
 #DMS to DD
@@ -15,12 +16,9 @@ def dd_calc(deg,min,sec,direc):#Parses the DMS coord into four parts, deg
 
 
 def dms_to_dd(dms):
-    parts = re.split('[^\d\w]+', dms)#Splits all symbols except for integers and unicode characters
+    parts = re.split("[\°\′\″]",dms)#Splits all symbols except for integers and unicode characters
 
-    if len(parts)>4:#This statement accounts for a parsing of decimals
-        return dd_calc(int(parts[0]), int(parts[1]), (int(parts[2])+(int(parts[3])/100)), parts[4])
-    else:
-        return dd_calc(int(parts[0]), int(parts[1]), int(parts[2]), parts[3])
+    return dd_calc(int(parts[0]), int(parts[1]), float(parts[2]), parts[3])
 
 
 #DD to DMS
@@ -38,7 +36,5 @@ def dd_to_dms(dd,direction):
 
 
 
-print(dd_to_dms(coord_dd,'lat'))
-new_coord=dd_to_dms(coord_dd,'lon')
 
 
