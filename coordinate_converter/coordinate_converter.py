@@ -2,7 +2,7 @@ import re
 
 
 #DMS to DD
-def dd_calc(deg,min,sec,direc):
+def __dd_calc(deg,min,sec,direc):# Private function.
     if direc == 'W' or direc == 'S':
         return -1 * (deg + (min / 60) + (sec / 3600))
     else:
@@ -11,7 +11,7 @@ def dd_calc(deg,min,sec,direc):
 
 def dms_to_dd(dms):
     parts = re.split("[\°\′\″]",dms)
-    dd=dd_calc(int(parts[0]), int(parts[1]), float(parts[2]), parts[3])
+    dd=__dd_calc(int(parts[0]), int(parts[1]), float(parts[2]), parts[3])
 
     return round(dd,4)
 
